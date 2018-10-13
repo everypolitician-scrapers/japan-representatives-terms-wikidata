@@ -22,7 +22,7 @@ class Term < Scraped::JSON
   end
 
   field :name do
-    json.dig(:itemLabel, :value)
+    json.dig(:itemLabel, :value)[/ (\w+ )general election/, 1] + "House of Representatives"
   end
 
   field :start_date do
